@@ -1,0 +1,15 @@
+.upperColumn{
+    margin: 40px;
+}
+
+.profilePicture{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+}
+.profilePicture img{
+    mix-blend-mode: luminosity;
+    object-fit: cover;
+
+}
