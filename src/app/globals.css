@@ -13,7 +13,9 @@
   font-weight: 400;
 }
 html{
+  
   background-color: var(--main-bg);
+  overflow-x: hidden;
 }
 h1{
   color: var(--main-dark);
@@ -23,7 +25,8 @@ h1{
   font-size: 240px;
   font-style: normal;
   font-weight: 900;
-  line-height: 100%; /* 238.773px */
+  line-height: 220px; /* 238.773px */
   letter-spacing: -9.551px;
   text-transform: uppercase;
+  margin-left: -20px;
 }

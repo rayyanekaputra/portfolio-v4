@@ -1,7 +1,31 @@
-.upperColumn{
-    margin: 40px;
+.hero{
+    display: flex;
+    flex-direction: column;
+    row-gap: 0px;
 }
 
+/* upper col */
+.upperColumn{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    column-gap: 360px;
+    margin: 40px 40px 0px;
+}
+.mainParagraph{
+    width: 100%;
+}
+.textWrapper{
+    display: flex;
+    flex-direction: column;
+    width: 156px;
+    row-gap: 24px;
+    clip-path: inset(100% 0% 0% 0%)
+}
+.bolderText{
+    font-weight: 500;
+}
 .profilePicture{
     position: relative;
     width: 100px;
@@ -13,3 +37,41 @@
     object-fit: cover;
 
 }
+
+/* mid col */
+.midColumn{
+    display: flex;
+    flex-direction: row;
+    margin-left: 40px;
+    margin-right: 215px;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* low col */
+.lowColumn{
+   width: 100%;
+   position: relative;
+}
+.slider{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    clip-path: inset(100% 0% 0% 0%)
+}
+.lowColumn .sliderList{
+    display: flex;
+    flex-direction: row;
+    column-gap: 40px;
+    padding-left: 40px
+ }
+
+ .svgContainer{
+    display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;    /* Center vertically */
+ }
+ .svgContainer svg{
+    width: 182px;
+    height: 182px;
+ }
