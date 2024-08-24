@@ -1,3 +1,6 @@
+
+
+
 .hero{
     display: flex;
     flex-direction: column;
@@ -21,6 +24,9 @@
     flex-direction: column;
     width: 156px;
     row-gap: 24px;
+    clip-path: inset(100% 0% 0% 0%)
+}
+.webText{
     clip-path: inset(100% 0% 0% 0%)
 }
 .bolderText{

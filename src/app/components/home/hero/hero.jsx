@@ -15,47 +15,52 @@ export default function Hero() {
   const firstList = useRef(null)
   const secondList = useRef(null)
   const slider = useRef(null)
+  const textWeb = useRef(null)
 
   let xPercent = 0;
   let direction = -1;
 
 
   useEffect(()=>{
-    requestAnimationFrame(animation)
-    gsap.registerPlugin(ScrollTrigger)
-    const timeline = gsap.timeline()
 
-    timeline
-      .to(slider.current, {
-        scrollTrigger: {
-          trigger: document.documentElement,
-          start: 0,
-          end: window.innerHeight,
-          scrub: 0.25,
-          onUpdate: (e) => (direction = e.direction * -1),
-        },
-        // x:'-=300px'
-      })
-      .to(slider.current, {
-        duration: 2.5,
-        clipPath: "inset(0% 0% 0% 0%)",
-        ease: "power1.inOut",
-      })
-      .to(bioText.current, {
-        duration: 1,
-        clipPath: "inset(0% 0% 0% 0%)",
-        ease: "power1.inOut",
-      }, 1)
-      .to(descText.current, {
-        duration: 1,
-        clipPath: "inset(0% 0% 0% 0%)",
-        ease: "power1.inOut",
-      }, 1)
-      .to(ctaText.current, {
-        duration: 1,
-        clipPath: "inset(0% 0% 0% 0%)",
-        ease: "power1.inOut",
-      }, 1);
+    if (typeof window !== "undefined") {
+      requestAnimationFrame(animation)
+      gsap.registerPlugin(ScrollTrigger)
+      const timeline = gsap.timeline()
+  
+      timeline
+        .to(slider.current, {
+          scrollTrigger: {
+            trigger: document.documentElement,
+            start: 0,
+            end: window.innerHeight,
+            scrub: 0.25,
+            onUpdate: (e) => (direction = e.direction * -1),
+          },
+          // x:'-=300px'
+        })
+        .to([slider.current, textWeb.current], {
+          duration: 2.5,
+          clipPath: "inset(0% 0% 0% 0%)",
+          ease: "power1.inOut",
+        })
+        .to(bioText.current, {
+          duration: 1,
+          clipPath: "inset(0% 0% 0% 0%)",
+          ease: "power1.inOut",
+        }, 1)
+        .to(descText.current, {
+          duration: 1,
+          clipPath: "inset(0% 0% 0% 0%)",
+          ease: "power1.inOut",
+        }, 1)
+        .to(ctaText.current, {
+          duration: 1,
+          clipPath: "inset(0% 0% 0% 0%)",
+          ease: "power1.inOut",
+        }, 1);
+    }
+
 
       
   }, [])
@@ -101,7 +106,7 @@ export default function Hero() {
         
       </div>
       <div className={styles.midColumn}>
-        <h1>WEB</h1>
+        <h1 ref={textWeb} className={styles.webText}>WEB</h1>
         <div ref={descText} className={styles.textWrapper}>
         <p className={styles.mainParagraph}>
           He is known for his web designs, animations, and interactions,

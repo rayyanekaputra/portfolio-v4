@@ -1,0 +1,81 @@
+.services{
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+
+
+}
+.topRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 40px 0px;
+}
+.seeMore{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+    column-gap: 10px;
+    
+}
+.icon{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.seeMoreText{
+    color: #000;
+    text-align: justify;
+    font-family: "General Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 16px */
+    text-transform: capitalize;
+}
+
+.bottomRow{
+    display: flex;
+    flex-direction: row;
+    column-gap: 24px;
+    margin: 0px 40px;
+
+}
+
+.listServices{
+    background-color: var( --main-bg);
+    border: 1px solid var(--main-grey);
+    min-width: 322px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    flex: 1 0 0;
+}
+
+.listServices:last-child{
+    background-color: var(--main-dark);
+}
+.listServices:last-child p,
+.listServices:last-child h2 {
+  color: var(--main-white);
+}
+
+
+.lisServiceItemTop{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.iconServiceItem{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--main-accent);
+    width: 28px;
+    height: 28px;
+}
