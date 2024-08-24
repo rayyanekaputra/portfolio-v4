@@ -1,33 +1,31 @@
-"use client";
-import dynamic from "next/dynamic";
+'use client'
 
 import styles from "./page.module.css";
-import LocomotiveScroll from "locomotive-scroll";
 import { useEffect } from "react";
+import Hero from "./components/home/hero/hero";
+import Services from "./components/home/services/services";
+import Splash from "./components/splash/splash";
+import Navbar from "./components/navbar/navbar";
 
-// Dynamically import components with SSR disabled
-const Hero = dynamic(() => import("./components/home/hero/hero"), {
-  ssr: false,
-});
-const Services = dynamic(() => import("./components/home/services/services"), {
-  ssr: false,
-});
-const Splash = dynamic(() => import("./components/splash/splash"), {
-  ssr: false,
-});
-const Navbar = dynamic(() => import("./components/navbar/navbar"), {
-  ssr: false,
-});
-
-const Home = () => {
-
-  
+export default function Home() {
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const locomotiveScroll = new LocomotiveScroll();
-    } 
+    if (typeof window === 'undefined') {
+      console.log('WINDOWNYA TDK TERBACA')
+    } else{
+      //dynamic import to fix the window issue
+      const importLocomotiveScroll = async () => {
+        const LocomotiveScroll = (await import("locomotive-scroll")).default;
+        const locomotiveScroll = new LocomotiveScroll();
+      };
+
+      importLocomotiveScroll();
+      console.log('WINDOW AMAN')
+    }
       
   }, []);
+
+
+  
   return (
     <main
       className={styles.main}
@@ -42,5 +40,3 @@ const Home = () => {
     </main>
   );
 };
-
-export default Home;

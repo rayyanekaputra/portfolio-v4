@@ -24,7 +24,7 @@ export default function Services() {
                 <ul className={styles.bottomRow}>
 
                 {services_list.map(({title, description}, index)=>(
-                    <li data-scroll data-scroll-speed='0.1' className={styles.listServices}>
+                    <li  key={index} data-scroll data-scroll-speed='0.1' className={styles.listServices}>
                         <div className={styles.lisServiceItemTop}>
                          <h2>{title}</h2>
                          <div className={styles.iconServiceItem}>
