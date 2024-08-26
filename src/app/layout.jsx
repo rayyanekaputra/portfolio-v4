@@ -32,6 +32,10 @@ export const metadata = {
   },
 };
 
+// favicon itu pake icon.ico sekarang... liat referensi kedua
+// https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons
+// https://stackoverflow.com/questions/61836949/why-is-my-favicon-not-working-in-my-next-js-app
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
