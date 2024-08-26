@@ -35,7 +35,7 @@ export default function Hero() {
             scrub: 0.25,
             onUpdate: (e) => (direction = e.direction * -1),
           },
-          // x:'-=300px'
+          x:'-500px'
         })
         .to([slider.current, textWeb.current], {
           duration: 2.5,
@@ -84,8 +84,8 @@ export default function Hero() {
     gsap.set(secondList.current, {
       xPercent: xPercent,
     });
-    xPercent += 0.01 * direction;
     requestAnimationFrame(animation);
+    xPercent += 0.01 * direction;
   };
   return (
     <div className={styles.hero}>
@@ -132,7 +132,7 @@ export default function Hero() {
         </div>
       </div>
       <div className={styles.lowColumn}>
-        <div data-scroll ref={slider} className={styles.slider}>
+        <div  ref={slider} className={styles.slider}>
           <div ref={firstList} className={styles.sliderList}>
             <h1>DESIGNER</h1>
             <div className={styles.svgContainer}>

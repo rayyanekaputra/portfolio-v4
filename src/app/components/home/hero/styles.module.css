@@ -58,18 +58,23 @@
 .lowColumn{
    width: 100%;
    position: relative;
+   overflow-x: visible;
 }
 .slider{
+    position: relative;
     display: flex;
-    width: 100%;
+    width: fit-content;
     flex-direction: row;
-    clip-path: inset(100% 0% 0% 0%)
+    clip-path: inset(100% 0% 0% 0%);
+    overflow-x: visible;
 }
 .lowColumn .sliderList{
+    position: relative;
     display: flex;
     flex-direction: row;
     column-gap: 40px;
-    padding-left: 40px
+    padding-left: 40px;
+    overflow: visible;
  }
 
  .svgContainer{
