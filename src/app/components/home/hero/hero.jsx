@@ -104,6 +104,9 @@ export default function Hero() {
             <Image
               src={"/images/pp rayyan.jpg"}
               fill={true}
+              priority={true}
+
+
               alt="profile picture rayyan"
             />
           </div>
