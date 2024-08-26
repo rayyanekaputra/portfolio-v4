@@ -10,7 +10,7 @@ import Navbar from "./components/navbar/navbar";
 export default function Home() {
   useEffect(() => {
     if (typeof window === 'undefined') {
-      console.log('WINDOWNYA TDK TERBACA')
+      console.log('WINDOWNYA IS UNREADABLE')
     } else{
       //dynamic import to fix the window issue
       const importLocomotiveScroll = async () => {
@@ -19,7 +19,7 @@ export default function Home() {
       };
 
       importLocomotiveScroll();
-      console.log('WINDOW AMAN')
+      console.log('WINDOW EXISTED')
     }
       
   }, []);

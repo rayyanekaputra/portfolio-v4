@@ -8,9 +8,9 @@ export default function Navbar() {
     return(
         <div className={styles.navbar}>
             <ul className={styles.navlinksList}>
-                <li>Services</li>
-                <li>Experience</li>
-                <li>About</li>
+                <li><p>Services</p></li>
+                <li><p>Experience</p></li>
+                <li><p>About</p></li>
             </ul>
             <div className={styles.buttonCTA}>
                 <p>Book A Call</p>
