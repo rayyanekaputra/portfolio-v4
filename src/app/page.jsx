@@ -33,8 +33,9 @@ export default function Home() {
         paddingBottom: "600px",
       }}
     >
-      <Navbar></Navbar>
       <Splash></Splash>
+      
+      <Navbar></Navbar>     
       <Hero></Hero>
       <Services></Services>
     </main>

@@ -27,6 +27,7 @@ export default function Hero() {
       const timeline = gsap.timeline();
 
       timeline
+      .delay(1.5)
         .to(slider.current, {
           scrollTrigger: {
             trigger: document.documentElement,

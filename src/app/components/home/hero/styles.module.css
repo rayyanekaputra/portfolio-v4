@@ -79,8 +79,8 @@
 
  .svgContainer{
     display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center;    /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    align-items: center;    /* Center vertically */
  }
  .svgContainer svg{
     width: 182px;
