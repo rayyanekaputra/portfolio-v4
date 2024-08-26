@@ -27,7 +27,7 @@ export default function Hero() {
       const timeline = gsap.timeline();
 
       timeline
-      .delay(1.5)
+      .delay(6)
         .to(slider.current, {
           scrollTrigger: {
             trigger: document.documentElement,
@@ -70,6 +70,7 @@ export default function Hero() {
           },
           1
         );
+
     }
   }, []);
   const animation = () => {
@@ -85,8 +86,10 @@ export default function Hero() {
     gsap.set(secondList.current, {
       xPercent: xPercent,
     });
+    
+    xPercent += 0.02 * direction;
+    // https://css-tricks.com/using-requestanimationframe/
     requestAnimationFrame(animation);
-    xPercent += 0.01 * direction;
   };
   return (
     <div className={styles.hero}>
