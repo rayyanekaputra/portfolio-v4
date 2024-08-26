@@ -20,7 +20,6 @@ html{
 h1{
   color: var(--main-dark);
   font-family: var(--font-satoshi);
-  font-family: Satoshi;
   font-size: 240px;
   font-style: normal;
   font-weight: 900;
