@@ -27,7 +27,8 @@
     clip-path: inset(100% 0% 0% 0%)
 }
 .webText{
-    clip-path: inset(100% 0% 0% 0%)
+    clip-path: inset(100% 0% 0% 0%);
+    width: fit-content;
 }
 .bolderText{
     font-weight: 500;

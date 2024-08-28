@@ -17,17 +17,21 @@ export default function Hero() {
   const slider = useRef(null);
   const textWeb = useRef(null);
 
+  //ref for stars
+  const starsRefs = useRef([])
+  const starsRef = (el) => starsRefs.current.push(el)
+
   let xPercent = 0;
   let direction = -1;
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      requestAnimationFrame(animation);
+      requestAnimationFrame(animationSliderInfinite);
       gsap.registerPlugin(ScrollTrigger);
       const timeline = gsap.timeline();
 
       timeline
-      .delay(6)
+        .delay(6)
         .to(slider.current, {
           scrollTrigger: {
             trigger: document.documentElement,
@@ -36,7 +40,7 @@ export default function Hero() {
             scrub: 0.25,
             onUpdate: (e) => (direction = e.direction * -1),
           },
-          x:'-500px'
+          x: "-500px",
         })
         .to([slider.current, textWeb.current], {
           duration: 2.5,
@@ -70,10 +74,10 @@ export default function Hero() {
           },
           1
         );
-
     }
   }, []);
-  const animation = () => {
+
+  const animationSliderInfinite = () => {
     if (xPercent <= -100) {
       xPercent = 0;
     }
@@ -86,11 +90,30 @@ export default function Hero() {
     gsap.set(secondList.current, {
       xPercent: xPercent,
     });
-    
+
     xPercent += 0.02 * direction;
     // https://css-tricks.com/using-requestanimationframe/
-    requestAnimationFrame(animation);
+    requestAnimationFrame(animationSliderInfinite);
   };
+
+  const enterStarsMouseAnimationHandler = () => {
+    gsap.to(starsRefs.current, {
+      duration: 1,
+      rotation: 180,
+      ease: "power4.inOut"
+    });
+    console.log(adakah);
+    console.log("MOUSE ENTERRR");
+  };
+  const leaveStarsMouseAnimationHandler = () => {
+    gsap.to(starsRefs.current, {
+      duration: 1,
+      rotation: 180,
+      ease: "power4.inOut"
+    }).reverse()
+    console.log("MOUSE LEAVE");
+  };
+
   return (
     <div className={styles.hero}>
       <div className={styles.upperColumn}>
@@ -105,8 +128,6 @@ export default function Hero() {
               src={"/images/pp rayyan.jpg"}
               fill={true}
               priority={true}
-
-
               alt="profile picture rayyan"
             />
           </div>
@@ -139,11 +160,14 @@ export default function Hero() {
         </div>
       </div>
       <div className={styles.lowColumn}>
-        <div  ref={slider} className={styles.slider}>
+        <div ref={slider} className={styles.slider}>
           <div ref={firstList} className={styles.sliderList}>
             <h1>DESIGNER</h1>
             <div className={styles.svgContainer}>
               <svg
+                ref={starsRef}
+                onMouseEnter={enterStarsMouseAnimationHandler}
+                onMouseLeave={leaveStarsMouseAnimationHandler}
                 xmlns="http://www.w3.org/2000/svg"
                 width="182"
                 height="182"
@@ -161,6 +185,9 @@ export default function Hero() {
             <h1>DEVELOPER</h1>
             <div className={styles.svgContainer}>
               <svg
+                ref={starsRef}
+                onMouseEnter={enterStarsMouseAnimationHandler}
+                onMouseLeave={leaveStarsMouseAnimationHandler}
                 xmlns="http://www.w3.org/2000/svg"
                 width="182"
                 height="182"
@@ -180,6 +207,9 @@ export default function Hero() {
             <h1>DESIGNER</h1>
             <div className={styles.svgContainer}>
               <svg
+                ref={starsRef}
+                onMouseEnter={enterStarsMouseAnimationHandler}
+                onMouseLeave={leaveStarsMouseAnimationHandler}
                 xmlns="http://www.w3.org/2000/svg"
                 width="182"
                 height="182"
@@ -197,6 +227,9 @@ export default function Hero() {
             <h1>DEVELOPER</h1>
             <div className={styles.svgContainer}>
               <svg
+                ref={starsRef}
+                onMouseEnter={enterStarsMouseAnimationHandler}
+                onMouseLeave={leaveStarsMouseAnimationHandler}
                 xmlns="http://www.w3.org/2000/svg"
                 width="182"
                 height="182"
