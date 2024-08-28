@@ -6,20 +6,26 @@ import { useEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Hero() {
-  //ref for texts
+  // Ref for texts
   const bioText = useRef(null);
   const descText = useRef(null);
   const ctaText = useRef(null);
 
-  //ref for sliders
+  // Ref for sliders
   const firstList = useRef(null);
   const secondList = useRef(null);
   const slider = useRef(null);
   const textWeb = useRef(null);
 
-  //ref for stars
-  const starsRefs = useRef([])
-  const starsRef = (el) => starsRefs.current.push(el)
+  // Ref many stars
+  const starsRefs = useRef([]);
+
+  //Ref untuk 1 star
+  const addStarRef = (el) => {
+    if (el && !starsRefs.current.includes(el)) {
+      starsRefs.current.push(el);
+    }
+  };
 
   let xPercent = 0;
   let direction = -1;
@@ -74,6 +80,35 @@ export default function Hero() {
           },
           1
         );
+
+      //TEMPORARY: USING DOM STRAIGHT AND NOT REACTS BEST PRACTICE
+      // didalam starsRefs[] itu di-map sebuah callback-fn untuk pake star (ini isinya addStarRef) untuk pakai animasi X
+      const starAnimations = starsRefs.current.map((star) =>
+        gsap.to(star, {
+          duration: 1,
+          rotation: 180,
+          ease: "power4.inOut",
+          paused: true,
+        })
+      );
+      
+      //pass by value, index ini tidak terkoneksi dengan yang di eventlistener, cuman tunggu value ji, yaitu angka
+      const handleMouseEnter = (index) => () => starAnimations[index].play(); 
+      const handleMouseLeave = (index) => () => starAnimations[index].reverse();
+
+      //untuk menunggu hovernya
+      starsRefs.current.forEach((star, index) => {
+        star.addEventListener("mouseenter", handleMouseEnter(index));
+        star.addEventListener("mouseleave", handleMouseLeave(index));
+      });
+
+      return () => {
+        //clean up
+        starsRefs.current.forEach((star, index) => {
+          star.removeEventListener("mouseenter", handleMouseEnter(index));
+          star.removeEventListener("mouseleave", handleMouseLeave(index));
+        });
+      };
     }
   }, []);
 
@@ -92,26 +127,7 @@ export default function Hero() {
     });
 
     xPercent += 0.02 * direction;
-    // https://css-tricks.com/using-requestanimationframe/
     requestAnimationFrame(animationSliderInfinite);
-  };
-
-  const enterStarsMouseAnimationHandler = () => {
-    gsap.to(starsRefs.current, {
-      duration: 1,
-      rotation: 180,
-      ease: "power4.inOut"
-    });
-    console.log(adakah);
-    console.log("MOUSE ENTERRR");
-  };
-  const leaveStarsMouseAnimationHandler = () => {
-    gsap.to(starsRefs.current, {
-      duration: 1,
-      rotation: 180,
-      ease: "power4.inOut"
-    }).reverse()
-    console.log("MOUSE LEAVE");
   };
 
   return (
@@ -165,9 +181,7 @@ export default function Hero() {
             <h1>DESIGNER</h1>
             <div className={styles.svgContainer}>
               <svg
-                ref={starsRef}
-                onMouseEnter={enterStarsMouseAnimationHandler}
-                onMouseLeave={leaveStarsMouseAnimationHandler}
+                ref={addStarRef}
                 xmlns="http://www.w3.org/2000/svg"
                 width="182"
                 height="182"
@@ -185,9 +199,7 @@ export default function Hero() {
             <h1>DEVELOPER</h1>
             <div className={styles.svgContainer}>
               <svg
-                ref={starsRef}
-                onMouseEnter={enterStarsMouseAnimationHandler}
-                onMouseLeave={leaveStarsMouseAnimationHandler}
+                ref={addStarRef}
                 xmlns="http://www.w3.org/2000/svg"
                 width="182"
                 height="182"
@@ -207,9 +219,7 @@ export default function Hero() {
             <h1>DESIGNER</h1>
             <div className={styles.svgContainer}>
               <svg
-                ref={starsRef}
-                onMouseEnter={enterStarsMouseAnimationHandler}
-                onMouseLeave={leaveStarsMouseAnimationHandler}
+                ref={addStarRef}
                 xmlns="http://www.w3.org/2000/svg"
                 width="182"
                 height="182"
@@ -227,9 +237,7 @@ export default function Hero() {
             <h1>DEVELOPER</h1>
             <div className={styles.svgContainer}>
               <svg
-                ref={starsRef}
-                onMouseEnter={enterStarsMouseAnimationHandler}
-                onMouseLeave={leaveStarsMouseAnimationHandler}
+                ref={addStarRef}
                 xmlns="http://www.w3.org/2000/svg"
                 width="182"
                 height="182"
