@@ -9,22 +9,34 @@ export default function Services() {
   //https://codesandbox.io/p/sandbox/musicapp-with-react-and-gsap-forked-csqtx?file=%2Fsrc%2FTest.js%3A24%2C20-24%2C33
   //https://gsap.com/community/forums/topic/27012-scrolltrigger-and-array-of-refs-in-react/
   const bottomRowRef = useRef();
+  const topRowRef = useRef();
   useEffect(() => {
     const listServices = bottomRowRef.current.querySelectorAll(`.${styles.listServices}`);
-    gsap.fromTo(listServices, {
-        opacity: 0
-    },{
-      delay: 6,
-      duration: 2,
-      opacity: 1,
-      stagger: 1,
-      ease: "power1.inOut"
-    });
+    const headerServices = topRowRef.current
+    const timeline = gsap.timeline();
+
+      timeline
+        .delay(6)
+        .from([headerServices,...listServices], {
+          opacity: 0,
+        })        
+        .to(headerServices, {
+          duration: 2,
+          opacity: 1,
+          ease: "power1.inOut"
+        })
+        .to(listServices, {
+          duration: 1,
+          opacity: 1,
+          stagger: 0.5,
+          ease: "power1.inOut"
+        })        
+    
   }, []);
 
   return (
     <div className={styles.services}>
-      <div className={styles.topRow}>
+      <div className={styles.topRow} ref={topRowRef}>
         <h2>Services</h2>
         <div className={styles.seeMore}>
           <p className={styles.seeMoreText}>See More</p>
