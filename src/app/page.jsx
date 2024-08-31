@@ -6,6 +6,7 @@ import Hero from "./components/home/hero/hero";
 import Services from "./components/home/services/services";
 import Splash from "./components/splash/splash";
 import Navbar from "./components/navbar/navbar";
+import About from "./components/home/about/about";
 
 export default function Home() {
   useEffect(() => {
@@ -38,6 +39,7 @@ export default function Home() {
       <Navbar></Navbar>     
       <Hero></Hero>
       <Services></Services>
+      <About></About>
     </main>
   );
 };

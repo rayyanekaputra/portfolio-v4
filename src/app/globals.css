@@ -37,6 +37,15 @@ h2{
   line-height: 100%; /* 24px */
   text-transform: capitalize;
 }
+h3{
+  color:var(--main-dark);
+  font-family: var(--font-generalSans);
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+  width: 1016px;
+  text-align: center;
+}
 p{
   color: var(--main-dark);
   font-family: var(--font-generalSans);

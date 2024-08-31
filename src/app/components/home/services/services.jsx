@@ -3,7 +3,6 @@ import styles from "./styles.module.css";
 import services_list from "./data/services_obj";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Services() {
   //https://codesandbox.io/p/sandbox/musicapp-with-react-and-gsap-forked-csqtx?file=%2Fsrc%2FTest.js%3A24%2C20-24%2C33
@@ -12,7 +11,7 @@ export default function Services() {
   const topRowRef = useRef();
   useEffect(() => {
     const listServices = bottomRowRef.current.querySelectorAll(`.${styles.listServices}`);
-    const headerServices = topRowRef.current
+    const headerServices = topRowRef.current //tidak perlu querySelectorAll karena cuman menunjuk dirinya sendiri. Nodelistnya kosong. Nodelist itu koleksi DOM
     const timeline = gsap.timeline();
 
       timeline
@@ -31,8 +30,7 @@ export default function Services() {
           stagger: 0.5,
           ease: "power1.inOut"
         })        
-    
-  }, []);
+      }, []);
 
   return (
     <div className={styles.services}>

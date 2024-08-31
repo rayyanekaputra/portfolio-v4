@@ -1,0 +1,35 @@
+.aboutContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    row-gap: 85px;
+    padding: 85px 0;
+}
+.topRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 40px 0px;
+}
+.bottomRow{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+.seeMore{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+    column-gap: 10px;
+    
+}
+.icon{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
